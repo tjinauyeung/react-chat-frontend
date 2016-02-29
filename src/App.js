@@ -1,22 +1,15 @@
 import React from 'react';
-import ChatModel from './models/ChatModel';
-import ChatForm from './components/ChatForm';
-import ChatList from './components/ChatList';
+import UserForm from './components/UserForm';
 
 class App extends React.Component {
-	constructor() {
+	constructor(){
 		super();
-
-		this.chats = new ChatModel();
 	}
 
     render() {
-        return (
-			<div>
-				<ChatForm model={this.chats} />
-				<ChatList model={this.chats} />
-			</div>
-        );
+		return (
+			<UserForm />
+		)
     }
 }
 

@@ -21,11 +21,30 @@ class ChatList extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.chats)
+
+		var style = {
+			backgroundColor: 'white',
+			padding: '20px',
+			borderRadius: '5px',
+		}
+
+		var container = {
+			margin: '20px'
+		}
+
+		var chats = {
+			marginBottom: '80px'
+		}
+
 		return (
-			<div>
+			<div style={chats}>
 				{this.state.chats.map((chat) => {
-					return (<p key={chat._id}>{chat.reply}</p>);
+					return (
+						<div style={container}>
+							<p><strong>{chat.user}</strong></p>
+							<div style={style} key={chat._id}>{chat.reply}</div>
+						</div>
+					);
 				})}
 			</div>
 		)

@@ -10,17 +10,39 @@ class ChatForm extends React.Component {
 		console.log("Create Chat Called");
 
 		let newReply = this.refs.newReply.value;
+		let newUser = this.props.username;
+
 		this.chats.addResource({
-			reply: newReply
+			reply: newReply,
+			user: newUser
 		})
 	}
 
 	render() {
+
+	var chatinput = {
+		position: 'fixed',
+		bottom: 0,
+		width: '100%',
+		height: '80px',
+		padding: '10px',
+		backgroundColor: 'white'
+	};
+
+	var input = {
+		height: '60px',
+		width: '100%',
+		fontFamily: 'sans-serif',
+		padding: '10px',
+		fontSize: '22px'
+	}
+
 		return (
-			<form onSubmit={this.createChat.bind(this)}>
-				<input ref="newReply" />
-				<button type="submit">Reply</button>
-			</form>
+			<div style={chatinput}>
+				<form onSubmit={this.createChat.bind(this)}>
+					<input placeholder="Chat away!" style={input} ref="newReply" />
+				</form>
+			</div>
 		)
 	}
 }
