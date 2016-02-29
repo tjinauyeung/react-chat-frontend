@@ -23,5 +23,6 @@ class ChatForm extends React.Component {
 			</form>
 		)
 	}
+}
 
 export default ChatForm; 

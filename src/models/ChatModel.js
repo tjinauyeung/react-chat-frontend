@@ -6,8 +6,9 @@ class ChatModel extends BaseModel {
 			reply: 'New Reply'
 		};
 	}
+	
 	constructor() {
-		super('chat')
+		super('chat');
 	}
 }
 
