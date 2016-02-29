@@ -11,10 +11,28 @@ class ChatApp extends React.Component {
 	}
 
     render() {
+    	var container = {
+    		display: 'flex',
+    		width: '100vw',
+    		height: '100vh'
+    	}
+
+    	var sidebar = {
+    		width: '400px'
+    	}
+
+    	var chat = {
+    		width: '100%',
+    	}
+
         return (
-			<div>
-				<ChatForm username={this.props.username} model={this.chats} />
-				<ChatList model={this.chats} />
+			<div style={container}>
+				<div style={sidebar}>
+				</div>
+				<div style={chat}>
+					<ChatList model={this.chats} />
+					<ChatForm username={this.props.username} model={this.chats} />
+				</div>
 			</div>
         );
     }

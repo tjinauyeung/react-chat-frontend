@@ -5,25 +5,40 @@ class ChatForm extends React.Component {
 		this.chats = this.props.model;
 	}
 
+	currentTime() {
+		let hours = new Date().getHours();
+		let minutes = new Date().getMinutes();
+		minutes = minutes > 9 ? minutes : '0' + minutes;
+		let time = hours + ":" + minutes;
+		return time;
+	}
+
+	scrollToBottom(){
+		var box = document.getElementById('chatbox');
+		box.scrollTop = box.scrollHeight;
+	}
+
 	createChat(event) {
 		event.preventDefault();
 		console.log("Create Chat Called");
 
 		let newReply = this.refs.newReply.value;
 		let newUser = this.props.username;
+		let newTime = this.currentTime();
 
 		this.chats.addResource({
 			reply: newReply,
-			user: newUser
+			user: newUser,
+			time: newTime
 		})
+
+		this.refs.newReply.value= "";
+		scrollToBottom();
 	}
 
 	render() {
 
 	var chatinput = {
-		position: 'fixed',
-		bottom: 0,
-		width: '100%',
 		height: '80px',
 		padding: '10px',
 		backgroundColor: 'white'
@@ -34,7 +49,10 @@ class ChatForm extends React.Component {
 		width: '100%',
 		fontFamily: 'sans-serif',
 		padding: '10px',
-		fontSize: '22px'
+		fontSize: '22px',
+		color: 'black',
+		fontWeight: '100',
+		outline: 'none'
 	}
 
 		return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import ChatItem from './ChatItem';
 
 class ChatList extends React.Component {
 	constructor() {
@@ -21,29 +22,19 @@ class ChatList extends React.Component {
 	}
 
 	render() {
-
-		var style = {
-			backgroundColor: 'white',
-			padding: '20px',
-			borderRadius: '5px',
-		}
-
-		var container = {
-			margin: '20px'
-		}
-
+		
 		var chats = {
-			marginBottom: '80px'
+			height: 'calc(100vh - 80px)',
+			overflowY: 'auto',
+			overflowX: 'hidden',
+			background: 'white',
 		}
 
 		return (
-			<div style={chats}>
+			<div style={chats} id="chatbox">
 				{this.state.chats.map((chat) => {
 					return (
-						<div style={container}>
-							<p><strong>{chat.user}</strong></p>
-							<div style={style} key={chat._id}>{chat.reply}</div>
-						</div>
+							<ChatItem key={chat._id} time={chat.time} user={chat.user} reply={chat.reply} />
 					);
 				})}
 			</div>
